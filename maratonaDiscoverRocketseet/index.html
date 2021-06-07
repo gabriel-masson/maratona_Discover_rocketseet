@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev.finance$</title>
+     
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.goo.gleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&swap">
+
+</head>
+
+<body>
+    
+    <header>
+        <img src="./assets/logo.svg" alt="logo dev finace">
+    </header>
+
+    <!--conteudo da page-->
+    <main class="container">
+
+        <section id="balance">
+            <!--geralamnete o primeiro filho de uma section é um h2-->
+            <!-- esse sr-only é importante veja a explicação no arq de css-->
+            <h2 class="sr-only">Balanço</h2>
+
+            <div class="card">
+                <h3>
+                    Entrada
+                    <img src="./assets/income.svg" alt="imagem de entarda">
+                </h3>
+                <p id="incomeDisplay">R$0,00</p>
+            </div>
+            <div class="card">
+                <h3>
+                 <span>Saida</span>   
+                 <img src="./assets/expense.svg" alt="imagem de saida">
+                </h3>
+                <p id="expenseDisplay">R$0,00</p>
+            </div>
+            <div class="card total">
+                <h3>
+                    <span>Total</span>
+                    <img src="./assets/total.svg" alt="imagem de total">
+                 </h3>
+                <p id="totalDisplay">R$0,00</p>
+            </div>
+        </section>
+
+        <section id="translation">
+            <h2 class="sr-only">Transação</h2>
+
+            <a href="#" class="button new" onclick="Modal.open()">+ nova Transação</a>
+
+            <table id="data-table">
+                <!--essas tags abaixo so funcionam com a tag table como pai-->    
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <th></th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    
+                </tbody> 
+
+            </table>
+
+        </section>
+
+
+    </main>
+
+    <div class="modal-overlay ">
+        <div class="modal">
+            
+            <div class="fora">
+                <h2>Nova Transação</h2>
+                <form action="" onsubmit="Form.submit(event)">
+
+                    <div class="input-group">
+                        <label class="sr-only"
+                        for="description">Descrição</label>
+                        <input type="text"
+                        id="description"
+                        name="description"
+                        placeholder="descrição">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group">
+                            <label class="sr-only"
+                            for="amount">Valor</label>
+                            <input type="number"
+                            step="0.01"
+                            id="amount"
+                            name="amount"
+                            placeholder="0.00">
+                        </div>
+                        <small class="help">Use o sinal - (negativo) para despesas e , (virgula) para casa decimais</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="sr-only"
+                        for="date">Data</label>
+                        <input type="date"
+                        id="date"
+                        name="date"
+                       >
+                    </div>
+
+                    <div class="input-group action">
+                        <a href="#"
+                         class="button cancel"
+                         onclick="Modal.close()">Cancelar</a>
+                        <button>Salvar</button>
+                    </div>
+
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Dev.finance$</p>
+    </footer>
+
+    <script src="./scripts.js"></script>
+
+</body>
+
+</html>
